@@ -17,20 +17,20 @@ h1 {
   align-items: center;
   justify-content: center;
 }
-.col-1 {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
 .container {
-  width: 900px;
+  width: 1000px;
   margin: 100px auto;
   background-color: #fff;
   border-radius: 11px;
   padding: 48px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 65fr 35fr;
   gap: 48px;
+}
+.col-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 .sub-heading {
   font-size: 20px;
@@ -60,6 +60,14 @@ input {
   width: 20px;
   background: url(./images/icon-dollar.svg) center / contain no-repeat;
 }
+.num-of-pple:focus,
+.bill-input:focus {
+  outline: none;
+  /* outline: 4px dotted #e67e22;
+  outline-offset: 8px; */
+  /* border: 5px solid hsl(185, 41%, 84%); */
+  box-shadow: inset 0 0 0 5px rgb(196, 229, 232, 0.5);
+}
 .people-label {
   position: relative;
 }
@@ -78,7 +86,7 @@ input {
   row-gap: 12px;
   column-gap: 12px;
   text-align: center;
-  width: fit-content;
+  width: 400px;
 }
 .grid-number,
 .grid-custom {
@@ -90,7 +98,11 @@ input {
   background-color: hsl(183, 100%, 15%);
   border-radius: 7px;
 }
-
+.grid-number:hover,
+.reset:hover {
+  color: hsl(183, 100%, 15%);
+  background-color: hsl(185, 41%, 84%);
+}
 .grid-custom {
   color: hsl(183, 100%, 15%);
   background-color: aliceblue;
@@ -101,6 +113,10 @@ input {
   padding: 24px;
   background-color: hsl(183, 100%, 15%);
   border-radius: 11px;
+}
+.num-text-header {
+  display: flex;
+  justify-content: space-between;
 }
 .tip-total-cont {
   display: flex;
@@ -141,4 +157,25 @@ input {
   padding: 16px 0;
   border-radius: 11px;
   cursor: pointer;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 24px;
+}
+.attribution a {
+  color: hsl(212, 12%, 32%);
+}
+.attribution a:link,
+.attribution a:visited {
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.attribution a:hover,
+.attribution a:active {
+  color: hsl(171, 66%, 44%);
+  text-decoration: underline;
+  font-weight: bolder;
 }
