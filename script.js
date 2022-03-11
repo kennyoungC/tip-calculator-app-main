@@ -8,11 +8,14 @@ const totalAmount = document.querySelector(`.total-amount`);
 const reset = document.querySelector(`.reset`);
 const errorMsg = document.querySelector(`.cant-do`);
 const gridBox = document.querySelector(`.grid-box`);
+const gridCustom = document.querySelector(`.grid-custom`);
 const calcTip = function (e) {
   if (e.target.classList.contains(`grid-number`)) {
     const num = parseInt(e.target.textContent);
-    const bill = +billInput.value;
     let people = +numOfPple.value;
+    const bill = +billInput.value;
+    const tip = (bill / people) * (num / 100);
+    const total = bill / people + tip;
     if (bill === 0 || bill === "") {
       people = 1;
       alert("Please enter values");
@@ -30,25 +33,65 @@ const calcTip = function (e) {
       // totalAmount.textContent = `$${total.toFixed(2)}`;
       // tipAmount.textContent = `$${tip.toFixed(2)}`;
     } else {
-      const tip = (bill / people) * (num / 100);
-      const total = bill / people + tip;
-
       totalAmount.textContent = `$${total.toFixed(2)}`;
       tipAmount.textContent = `$${tip.toFixed(2)}`;
     }
   }
 };
-const blank = function () {
-  billInput.value = "";
-  numOfPple.value = "";
+const customValue = function () {
+  const input = document.createElement(`input`);
+  gridCustom.replaceWith(input);
+  input.style.outline = `none`;
+  input.classList.add(`new-input`);
+  input.placeholder = `0`;
+  input.style.boxShadow = `inset 0 0 0 5px rgb(196, 229, 232, 0.5)`;
+  return Number(input.value);
 };
+gridCustom.addEventListener(`click`, function () {
+  customValue();
+  const newInput = document.querySelector(`.new-input`);
+  newInput.addEventListener(`keydown`, function (e) {
+    console.log(e.key);
+    const input = +newInput.value;
+    let people = +numOfPple.value;
+    const bill = +billInput.value;
+    const tip = (bill / people) * (input / 100);
+    const total = bill / people + tip;
+    if (e.key === `Enter`) {
+      if (
+        input === 0 ||
+        input === "" ||
+        (input <= 1 && numOfPple.value === "")
+      ) {
+        people = 1;
+        newInput.style.boxShadow = `inset 0 0 0 5px rgba(236, 16, 9, 0.5)`;
+      } else {
+        totalAmount.textContent = `$${total.toFixed(2)}`;
+        tipAmount.textContent = `$${tip.toFixed(2)}`;
+      }
+    }
+  });
+});
+// const clearUserInput = function () {
+//   numOfPple.style.boxShadow = `none`;
+//   errorMsg.textContent = ``;
+//   totalAmount.textContent = `$0.00`;
+//   tipAmount.textContent = `$0.00`;
+//   billInput.value = "";
+//   numOfPple.value = "";
+// };
 
 const resetAll = function () {
   numOfPple.style.boxShadow = `none`;
   errorMsg.textContent = ``;
   totalAmount.textContent = `$0.00`;
   tipAmount.textContent = `$0.00`;
-  blank();
+  billInput.value = "";
+  numOfPple.value = "";
+  const newInput = document.querySelector(`.new-input`);
+  if (newInput) {
+    newInput.replaceWith(gridCustom);
+  }
 };
 billInput.addEventListener(`click`, resetAll);
 gridBox.addEventListener(`click`, calcTip);

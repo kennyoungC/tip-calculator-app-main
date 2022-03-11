@@ -158,6 +158,10 @@ input {
   border-radius: 11px;
   cursor: pointer;
 }
+.new-input {
+  width: 125.34px;
+  height: 39px;
+}
 .attribution {
   font-size: 11px;
   text-align: center;
