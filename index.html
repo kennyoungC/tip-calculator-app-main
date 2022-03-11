@@ -17,8 +17,10 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;700&family=Rubik:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;700&family=Rubik:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
@@ -38,28 +40,50 @@
       <div class="col-1">
         <div class="bill-container">
           <p class="bill sub-heading">Bill</p>
-          <input type="number" placeholder="$" />
+          <label class="bill-label">
+            <input class="bill-input" type="number" placeholder="0"
+          /></label>
         </div>
         <div class="tip-container">
           <p class="select sub-heading">Select Tip %</p>
           <div class="grid-box">
-            <div class="grid-number">5%</div>
-            <div class="grid-number">10%</div>
-            <div class="grid-number">15%</div>
-            <div class="grid-number">25%</div>
-            <div class="grid-number">50%</div>
-            <div class="grid-custom">Custom</div>
+            <button class="grid-number">5%</button>
+            <button class="grid-number">10%</button>
+            <button class="grid-number">15%</button>
+            <button class="grid-number">25%</button>
+            <button class="grid-number">50%</button>
+            <button class="grid-custom">Custom</button>
           </div>
         </div>
         <div class="num-pple--container">
           <p class="num-pple sub-heading">Number of People</p>
-          <input type="number" />
+          <label class="people-label">
+            <input class="num-of-pple" type="number" placeholder="0"
+          /></label>
         </div>
       </div>
-      <div class="col-1"></div>
+      <div class="col-2">
+        <div class="tip-total-cont">
+          <div class="tip-amt">
+            <p class="tip-text">
+              Tip Amount <br />
+              <span class="person"> / person</span>
+            </p>
+            <p class="amt tip-amount">$0.00</p>
+          </div>
+          <div class="tot-amt">
+            <p class="tip-text">
+              Total <br />
+              <span class="person"> / person</span>
+            </p>
+            <p class="amt total-amount">$0.00</p>
+          </div>
+        </div>
+        <div class="reset-box">
+          <button class="reset">Reset</button>
+        </div>
+      </div>
     </div>
-
-    Tip Amount / person Total / person Reset
 
     <div class="attribution">
       Challenge by
@@ -67,5 +91,6 @@
         >Frontend Mentor</a
       >. Coded by <a href="#">Your Name Here</a>.
     </div>
+    <script src="./script.js"></script>
   </body>
 </html>
