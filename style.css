@@ -48,6 +48,11 @@ input {
   text-align: right;
   border-radius: 7px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .bill-label {
   position: relative;
 }
@@ -182,4 +187,23 @@ input {
   color: hsl(171, 66%, 44%);
   text-decoration: underline;
   font-weight: bolder;
+}
+@media (max-width: 28em) {
+  .container {
+    width: 500px;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    padding: 48px 32px;
+  }
+  h1 {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  .col-2 {
+    gap: 48px;
+  }
+  .attribution {
+    text-align: center;
+    margin: 48px auto;
+  }
 }
